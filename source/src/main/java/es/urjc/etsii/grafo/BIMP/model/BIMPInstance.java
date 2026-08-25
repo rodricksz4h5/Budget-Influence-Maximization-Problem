@@ -8,7 +8,6 @@ import java.util.*;
 import java.util.logging.Logger;
 import java.util.random.RandomGenerator;
 import java.util.stream.Stream;
-import org.apache.commons.math3.random.MersenneTwister;
 
 public class BIMPInstance extends Instance {
 
@@ -45,7 +44,7 @@ public class BIMPInstance extends Instance {
             this.isDirected = Boolean.parseBoolean(numbers[3]);
             this.trivalency = new double[nodes];
             double probability[] = {0.1, 0.01, 0.001}; //TV
-            MersenneTwister rand = new MersenneTwister();
+            RandomGenerator rand = RandomManager.getRandom();
             for(int i=0; i<nodes;i++){
                 int rnd = rand.nextInt(3); //TV
                 this.trivalency[i] =  probability[rnd];
